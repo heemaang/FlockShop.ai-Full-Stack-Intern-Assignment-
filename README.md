@@ -4,7 +4,7 @@ A collaborative product wishlist application built with the MERN stack (MongoDB,
 
 ## 🌐 Live Demo
 
-**🔗 [View Live Application](https://flock-shop-ai-full-stack-intern-ass.vercel.app/login)**
+**🔗 [View Live Application](https://flock-shop-ai-full-stack-intern-ass.vercel.app/)**
 
 *Experience the full application with real-time collaboration features!*
 
