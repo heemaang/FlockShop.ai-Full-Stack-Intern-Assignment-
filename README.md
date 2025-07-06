@@ -4,7 +4,7 @@ A collaborative product wishlist application built with the MERN stack (MongoDB,
 
 ## 🌐 Live Demo
 
-**🔗 [View Live Application](https://flock-shop-ai-full-stack-intern-assignment-pqbj9h0iz.vercel.app/login)**
+**🔗 [View Live Application](https://flock-shop-ai-full-stack-intern-ass.vercel.app/)**
 
 *Experience the full application with real-time collaboration features!*
 
@@ -63,22 +63,17 @@ This project demonstrates a full-stack web application that simulates a real-wor
 
 ## 📸 Screenshots
 
-### 🏠 Dashboard
-![Dashboard](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Dashboard+View)
-
 ### 🔐 Authentication
-![Login Page](https://via.placeholder.com/800x400/10B981/FFFFFF?text=Login+Page)
-![Signup Page](https://via.placeholder.com/800x400/F59E0B/FFFFFF?text=Signup+Page)
+![Login Page](./Photos/Login.png)
+
+### 🏠 Dashboard
+![Dashboard](./Photos/dashboard.png)
 
 ### 📋 Wishlist Management
-![Wishlist View](https://via.placeholder.com/800x400/8B5CF6/FFFFFF?text=Wishlist+View)
-![Add Product](https://via.placeholder.com/800x400/EF4444/FFFFFF?text=Add+Product)
+![Wishlist View](./Photos/wishlistview.png)
+![Wishlist Preview](./Photos/wishlistPreview.png)
+![Wishlist Item](./Photos/wishlistItem.png)
 
-### 💬 Real-time Features
-![Comments & Reactions](https://via.placeholder.com/800x400/06B6D4/FFFFFF?text=Comments+%26+Reactions)
-![Mobile Responsive](https://via.placeholder.com/800x400/84CC16/FFFFFF?text=Mobile+Responsive)
-
-*Note: Replace the placeholder images above with actual screenshots of your application*
 
 ## 🛠️ Tech Stack
 
