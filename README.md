@@ -388,116 +388,13 @@ npm run build       # Build for production
 npm run preview     # Preview production build
 ```
 
-## 📝 Submission Guidelines
-
-### Required Files
-1. **Complete Source Code** - All frontend and backend files
-2. **README.md** - This comprehensive documentation
-3. **Package.json Files** - Both client and server dependencies
-4. **Environment Configuration** - .env.example file
-5. **Screenshots/Demo** - Application screenshots or video demo
-
-### Submission Format
-- **ZIP File**: Compress entire project folder
-- **GitHub Repository**: Public repository with clear documentation
-- **Live Demo**: Deployed application URL (optional but recommended)
-
-### Documentation Requirements
-- ✅ Setup instructions (included above)
-- ✅ Tech stack details (included above)
-- ✅ Assumptions and limitations (included above)
-- ✅ API documentation (included above)
-- ✅ Screenshots or demo video
-- ✅ Future improvement plans (included above)
-
-## 🎯 Evaluation Criteria
-
-### Code Quality (25%)
-- ✅ Clean, well-structured code
-- ✅ Proper separation of concerns
-- ✅ Consistent coding style
-- ✅ Error handling and validation
-- ✅ Git commit history and practices
-
-### Functionality (30%)
-- ✅ All core requirements implemented
-- ✅ Bonus features working correctly
-- ✅ Real-time collaboration features
-- ✅ User authentication and authorization
-- ✅ CRUD operations for all entities
-
-### User Experience (20%)
-- ✅ Intuitive and responsive design
-- ✅ Mobile-friendly interface
-- ✅ Real-time updates and feedback
-- ✅ Error messages and user guidance
-- ✅ Accessibility considerations
-
-### Technical Implementation (15%)
-- ✅ Proper API design and documentation
-- ✅ Database schema and relationships
-- ✅ WebSocket integration
-- ✅ Security best practices
-- ✅ Performance optimization
-
-### Creativity & Innovation (10%)
-- ✅ Additional features beyond requirements
-- ✅ Unique UI/UX elements
-- ✅ Advanced real-time features
-- ✅ Social collaboration features
-- ✅ Technical problem-solving
-
-## 📸 Screenshots
-
-*[Include 3-5 screenshots of your application showing:*
-1. *Login/Signup page*
-2. *Dashboard with wishlists*
-3. *Wishlist detail page with products*
-4. *Real-time collaboration features*
-5. *Mobile responsive design*]
-
-## 🎥 Demo Video
-
-*[Include a link to a Loom or YouTube video demonstrating:*
-- *User registration and login*
-- *Creating and managing wishlists*
-- *Adding products with images and prices*
-- *Real-time collaboration between users*
-- *Comments and emoji reactions*
-- *Mobile responsiveness*]
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is created for educational purposes as part of a technical assignment. Feel free to use and modify as needed.
 
 ## 👨‍💻 Author
 
 *[Your Name]*
-- **Email**: [your.email@example.com]
-- **GitHub**: [your-github-username]
-- **LinkedIn**: [your-linkedin-profile]
+- **Email**: [heemaang.saxena18@gmail.com]
+- **GitHub**: [https://github.com/heemaang]
+- **LinkedIn**: [https://www.linkedin.com/in/heemaang-saxena/]
 
 ---
 
-## 🎉 Conclusion
-
-This Shared Wishlist App demonstrates a complete full-stack web application with modern technologies and real-time collaboration features. The implementation includes all core requirements plus extensive bonus features, showcasing:
-
-- **Full-stack development skills** with MERN stack
-- **Real-time collaboration** using WebSockets
-- **Modern UI/UX design** with responsive layout
-- **Social features** like comments and reactions
-- **Robust architecture** with proper separation of concerns
-- **Production-ready code** with error handling and validation
-
-The application is ready for deployment and can be easily extended with additional features for a production environment.
-
-**Happy Shopping! 🛍️**
