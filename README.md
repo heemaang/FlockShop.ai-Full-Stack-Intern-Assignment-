@@ -2,6 +2,12 @@
 
 A collaborative product wishlist application built with the MERN stack (MongoDB, Express, React, Node.js) where multiple users can create, manage, and interact with wishlists in real-time. Perfect for group shopping, gift planning, and collaborative wishlist management.
 
+## 🌐 Live Demo
+
+**🔗 [View Live Application](https://flock-shop-ai-full-stack-intern-assignment-pqbj9h0iz.vercel.app/login)**
+
+*Experience the full application with real-time collaboration features!*
+
 ## 📋 Assignment Overview
 
 This project demonstrates a full-stack web application that simulates a real-world collaborative shopping experience. Users can create shared wishlists, add products, invite others, and interact in real-time with features like comments and emoji reactions.
@@ -55,6 +61,25 @@ This project demonstrates a full-stack web application that simulates a real-wor
 - **Delete Confirmation**: Safe deletion with confirmation dialogs
 - **Error Handling**: Comprehensive error messages and user feedback
 
+## 📸 Screenshots
+
+### 🏠 Dashboard
+![Dashboard](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Dashboard+View)
+
+### 🔐 Authentication
+![Login Page](https://via.placeholder.com/800x400/10B981/FFFFFF?text=Login+Page)
+![Signup Page](https://via.placeholder.com/800x400/F59E0B/FFFFFF?text=Signup+Page)
+
+### 📋 Wishlist Management
+![Wishlist View](https://via.placeholder.com/800x400/8B5CF6/FFFFFF?text=Wishlist+View)
+![Add Product](https://via.placeholder.com/800x400/EF4444/FFFFFF?text=Add+Product)
+
+### 💬 Real-time Features
+![Comments & Reactions](https://via.placeholder.com/800x400/06B6D4/FFFFFF?text=Comments+%26+Reactions)
+![Mobile Responsive](https://via.placeholder.com/800x400/84CC16/FFFFFF?text=Mobile+Responsive)
+
+*Note: Replace the placeholder images above with actual screenshots of your application*
+
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -86,6 +111,9 @@ This project demonstrates a full-stack web application that simulates a real-wor
 shared-wishlist-app/
 ├── client/                          # React Frontend
 │   ├── src/
+│   │   ├── config/
+│   │   │   ├── api.js               # API endpoint configuration
+│   │   │   └── config.js            # Environment configuration
 │   │   ├── contexts/
 │   │   │   └── SocketContext.jsx    # WebSocket connection management
 │   │   ├── pages/
@@ -94,10 +122,14 @@ shared-wishlist-app/
 │   │   │   ├── Dashboard.jsx        # Main dashboard with wishlists
 │   │   │   └── WishlistPage.jsx     # Individual wishlist view
 │   │   ├── App.jsx                  # Main app component with routing
+│   │   ├── App.css                  # App-specific styles
 │   │   ├── main.jsx                 # Entry point
 │   │   └── index.css                # Global styles
-│   ├── package.json
-│   └── vite.config.js
+│   ├── .gitignore                   # Git ignore rules
+│   ├── index.html                   # HTML template
+│   ├── package.json                 # Frontend dependencies
+│   ├── vite.config.js               # Vite configuration
+│   └── eslint.config.js             # ESLint configuration
 ├── server/                          # Node.js Backend
 │   ├── models/
 │   │   ├── User.js                  # User schema
@@ -110,11 +142,12 @@ shared-wishlist-app/
 │   │   ├── authController.js        # Authentication logic
 │   │   └── wishlistController.js    # Wishlist and product logic
 │   ├── middleware/
-│   │   └── auth.js                  # JWT authentication middleware
+│   │   └── authMiddleware.js        # JWT authentication middleware
+│   ├── .gitignore                   # Git ignore rules
 │   ├── server.js                    # Main server with Socket.IO
-│   ├── package.json
+│   ├── package.json                 # Backend dependencies
 │   └── .env                         # Environment variables
-└── README.md
+└── README.md                        # Project documentation
 ```
 
 ## 🚀 Setup Instructions
@@ -143,6 +176,7 @@ npm install
 
 ### Step 2: Environment Configuration
 
+#### Backend Environment
 Create a `.env` file in the `server` directory:
 
 ```env
@@ -155,6 +189,17 @@ MONGO_URI=mongodb://localhost:27017/sharedwishlist
 
 # For MongoDB Atlas, use your connection string:
 # MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/sharedwishlist
+```
+
+#### Frontend Environment
+The frontend is configured to use the hosted backend by default. For local development, create a `.env` file in the `client` directory:
+
+```env
+# For local development
+VITE_API_URL=http://localhost:5000
+
+# For production (default)
+VITE_API_URL=https://flockshop-ai-full-stack-intern-assignment.onrender.com
 ```
 
 ### Step 3: Start the Application
@@ -379,7 +424,6 @@ Frontend will run on `http://localhost:5173`
 cd server
 npm run dev          # Start with nodemon
 npm start           # Start production server
-npm run test-connection  # Test database connection
 
 # Frontend
 cd client

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URLS } from '../config/api';
 
 export default function Signup() {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
@@ -14,7 +15,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', formData);
+      await axios.post(API_URLS.SIGNUP, formData);
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');

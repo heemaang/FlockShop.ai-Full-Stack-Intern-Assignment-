@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import { API_URLS } from '../config/api';
 
 const SocketContext = createContext();
 
@@ -19,7 +20,7 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     const connectSocket = () => {
       console.log('Attempting to connect to WebSocket server...');
-      const newSocket = io('http://localhost:5000', {
+      const newSocket = io(API_URLS.WEBSOCKET_URL, {
         transports: ['websocket', 'polling'],
         timeout: 10000,
         reconnection: true,

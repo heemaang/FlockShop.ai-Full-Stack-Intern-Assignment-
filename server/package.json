@@ -4,10 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "demo": "node demoServer.js",
-    "smart-start": "node start-server.js",
-    "test-connection": "node test-connection.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

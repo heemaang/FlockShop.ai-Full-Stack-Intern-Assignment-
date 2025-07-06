@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URLS } from '../config/api';
 
 export default function Dashboard({ setIsAuthenticated }) {
   const [wishlists, setWishlists] = useState([]);
@@ -34,7 +35,7 @@ export default function Dashboard({ setIsAuthenticated }) {
       }
       
       console.log('Making request to fetch wishlists with token');
-      const response = await axios.get('http://localhost:5000/api/wishlists', {
+      const response = await axios.get(API_URLS.WISHLISTS, {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log('Wishlists response:', response.data);
@@ -92,7 +93,7 @@ export default function Dashboard({ setIsAuthenticated }) {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/wishlists', 
+      await axios.post(API_URLS.WISHLISTS, 
         { name: newWishlistName },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -110,7 +111,7 @@ export default function Dashboard({ setIsAuthenticated }) {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/wishlists/${wishlistId}`, {
+      await axios.delete(API_URLS.WISHLIST_BY_ID(wishlistId), {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchWishlists(); // Refresh the list

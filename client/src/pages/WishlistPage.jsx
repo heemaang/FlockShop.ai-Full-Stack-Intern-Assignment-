@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URLS } from '../config/api';
 import { useSocket } from '../contexts/SocketContext';
 
 export default function WishlistPage() {
@@ -118,7 +119,7 @@ export default function WishlistPage() {
   const fetchWishlist = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/wishlists/${id}`, {
+      const response = await axios.get(API_URLS.WISHLIST_BY_ID(id), {
         headers: { Authorization: `Bearer ${token}` }
       });
       setWishlist(response.data);
@@ -135,7 +136,7 @@ export default function WishlistPage() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/wishlists/${id}/products`, 
+      await axios.post(API_URLS.WISHLIST_PRODUCTS(id), 
         { 
           name: newProduct.name, 
           imageUrl: newProduct.imageUrl, 
@@ -157,7 +158,7 @@ export default function WishlistPage() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/wishlists/${id}/products/${editingProduct._id}`, 
+      await axios.put(API_URLS.WISHLIST_PRODUCT(id, editingProduct._id), 
         { 
           name: editingProduct.name, 
           imageUrl: editingProduct.imageUrl, 
@@ -176,7 +177,7 @@ export default function WishlistPage() {
   const deleteProduct = async (productId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/wishlists/${id}/products/${productId}`, {
+      await axios.delete(API_URLS.WISHLIST_PRODUCT(id, productId), {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchWishlist();
@@ -194,7 +195,7 @@ export default function WishlistPage() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`http://localhost:5000/api/wishlists/${id}/invite`, 
+      const response = await axios.post(API_URLS.WISHLIST_INVITES(id), 
         { email: inviteEmail },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -215,7 +216,7 @@ export default function WishlistPage() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/wishlists/${id}/members/${memberId}`, {
+      await axios.delete(`${API_URLS.WISHLIST_BY_ID(id)}/members/${memberId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchWishlist(); // Refresh to show updated members
@@ -230,7 +231,7 @@ export default function WishlistPage() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/wishlists/${id}/products/${commentingProduct}/comments`, 
+      await axios.post(API_URLS.PRODUCT_COMMENTS(id, commentingProduct), 
         { text: newComment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -252,7 +253,7 @@ export default function WishlistPage() {
         return;
       }
 
-      const response = await axios.post(`http://localhost:5000/api/wishlists/${id}/products/${productId}/reactions`, 
+      const response = await axios.post(API_URLS.PRODUCT_REACTIONS(id, productId), 
         { emoji },
         { headers: { Authorization: `Bearer ${token}` } }
       );

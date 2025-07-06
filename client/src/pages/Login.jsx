@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URLS } from '../config/api';
 
 export default function Login({ setIsAuthenticated }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -20,8 +21,8 @@ export default function Login({ setIsAuthenticated }) {
     console.log('Attempting login with:', { email: formData.email, password: formData.password ? '***' : 'empty' });
     
     try {
-      console.log('Making request to:', 'http://localhost:5000/api/auth/login');
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      console.log('Making request to:', API_URLS.LOGIN);
+      const response = await axios.post(API_URLS.LOGIN, formData);
       console.log('Login response:', response.data);
       
       localStorage.setItem('token', response.data.token);
@@ -38,7 +39,7 @@ export default function Login({ setIsAuthenticated }) {
       console.error('Error status:', err.response?.status);
       
       if (err.code === 'ERR_NETWORK') {
-        setError('Cannot connect to server. Please make sure the server is running on port 5000.');
+        setError('Cannot connect to server. Please check your internet connection and try again.');
       } else if (err.response?.status === 400) {
         setError(err.response.data.message || 'Invalid email or password');
       } else if (err.response?.status === 500) {
