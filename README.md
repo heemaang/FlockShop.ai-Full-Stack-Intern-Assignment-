@@ -391,7 +391,7 @@ npm run preview     # Preview production build
 
 ## 👨‍💻 Author
 
-*[Your Name]*
+*[Heemaang Saxena]*
 - **Email**: [heemaang.saxena18@gmail.com]
 - **GitHub**: [https://github.com/heemaang]
 - **LinkedIn**: [https://www.linkedin.com/in/heemaang-saxena/]
