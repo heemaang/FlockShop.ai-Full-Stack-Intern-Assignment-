@@ -18,12 +18,8 @@ export default function Login({ setIsAuthenticated }) {
     setLoading(true);
     setError('');
     
-    console.log('Attempting login with:', { email: formData.email, password: formData.password ? '***' : 'empty' });
-    
     try {
-      console.log('Making request to:', API_URLS.LOGIN);
       const response = await axios.post(API_URLS.LOGIN, formData);
-      console.log('Login response:', response.data);
       
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -31,7 +27,6 @@ export default function Login({ setIsAuthenticated }) {
       // Update authentication state in App.jsx
       setIsAuthenticated(true);
       
-      console.log('Token stored, navigating to dashboard...');
       navigate('/dashboard');
     } catch (err) {
       console.error('Login error:', err);

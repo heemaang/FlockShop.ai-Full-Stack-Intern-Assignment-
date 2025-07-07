@@ -26,19 +26,15 @@ export default function Dashboard({ setIsAuthenticated }) {
   const fetchWishlists = async () => {
     try {
       const token = localStorage.getItem('token');
-      console.log('Token from localStorage:', token ? 'Token exists' : 'No token found');
       
       if (!token) {
-        console.error('No token found in localStorage');
         navigate('/login');
         return;
       }
       
-      console.log('Making request to fetch wishlists with token');
       const response = await axios.get(API_URLS.WISHLISTS, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      console.log('Wishlists response:', response.data);
       setWishlists(response.data);
       calculateStats(response.data);
     } catch (err) {
@@ -50,7 +46,6 @@ export default function Dashboard({ setIsAuthenticated }) {
       });
       
       if (err.response?.status === 401) {
-        console.log('Token is invalid, redirecting to login');
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         navigate('/login');

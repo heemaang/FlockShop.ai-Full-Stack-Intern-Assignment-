@@ -244,7 +244,6 @@ export default function WishlistPage() {
 
   const addReaction = async (productId, emoji) => {
     try {
-      console.log('Adding reaction:', { productId, emoji, userId: currentUser?._id });
       const token = localStorage.getItem('token');
       
       if (!token) {
@@ -257,8 +256,6 @@ export default function WishlistPage() {
         { emoji },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      
-      console.log('Reaction response:', response.data);
       
       // Update the local state immediately for better UX
       setWishlist(prev => ({
@@ -283,23 +280,19 @@ export default function WishlistPage() {
 
   const getReactionCount = (product, emoji) => {
     const count = product.reactions?.filter(r => r.emoji === emoji).length || 0;
-    console.log(`Reaction count for ${emoji}:`, count, 'Product reactions:', product.reactions);
     return count;
   };
 
   const hasUserReacted = (product, emoji) => {
     if (!currentUser) {
-      console.log('No current user found');
       return false;
     }
     
     const hasReacted = product.reactions?.some(r => r.emoji === emoji && r.user._id === currentUser._id);
-    console.log(`User ${currentUser.username} has reacted with ${emoji}:`, hasReacted);
     return hasReacted;
   };
 
   const handleReactionClick = (productId, emoji) => {
-    console.log('Reaction clicked:', { productId, emoji, currentUser: currentUser?.username });
     
     // Add visual feedback immediately
     const button = document.querySelector(`[data-reaction="${productId}-${emoji}"]`);
@@ -627,39 +620,43 @@ export default function WishlistPage() {
                   borderRadius: 'var(--radius-md)',
                   border: '1px solid var(--gray-200)'
                 }}>
-                  <span style={{ fontWeight: '500', color: 'var(--gray-700)' }}>
-                    {member.username || member.email}
-                  </span>
-                  {member._id === wishlist.owner?._id && (
-                    <span style={{
-                      fontSize: '0.75rem',
-                      padding: '0.25rem 0.5rem',
-                      backgroundColor: 'var(--primary-100)',
-                      color: 'var(--primary-700)',
-                      borderRadius: 'var(--radius-sm)',
-                      fontWeight: '500'
-                    }}>
-                      Owner
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.25rem', background: 'rgba(255,255,255,0.8)', borderRadius: 'var(--radius-md)', border: '1px solid var(--gray-200)' }}>
+                    {member._id !== wishlist.owner?._id && (
+                      <button
+                        onClick={() => removeMember(member._id)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: 'var(--danger-500)',
+                          cursor: 'pointer',
+                          fontSize: '1.25rem',
+                          padding: '0 0.5rem 0 0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          marginRight: '0.5rem',
+                        }}
+                        title="Remove member"
+                      >
+                        ×
+                      </button>
+                    )}
+                    <span style={{ fontWeight: '500', color: 'var(--gray-700)' }}>
+                      {member.username || member.email}
                     </span>
-                  )}
-                  {member._id !== wishlist.owner?._id && (
-                    <button
-                      onClick={() => removeMember(member._id)}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: 'var(--danger-500)',
-                        cursor: 'pointer',
-                        fontSize: '1.25rem',
-                        padding: '0',
-                        display: 'flex',
-                        alignItems: 'center'
-                      }}
-                      title="Remove member"
-                    >
-                      ×
-                    </button>
-                  )}
+                    {member._id === wishlist.owner?._id && (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        padding: '0.25rem 0.5rem',
+                        backgroundColor: 'var(--primary-100)',
+                        color: 'var(--primary-700)',
+                        borderRadius: 'var(--radius-sm)',
+                        fontWeight: '500',
+                        marginLeft: '0.5rem',
+                      }}>
+                        Owner
+                      </span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

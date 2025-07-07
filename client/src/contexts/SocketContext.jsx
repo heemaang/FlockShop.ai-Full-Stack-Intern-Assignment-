@@ -19,7 +19,6 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     const connectSocket = () => {
-      console.log('Attempting to connect to WebSocket server...');
       const newSocket = io(API_URLS.WEBSOCKET_URL, {
         transports: ['websocket', 'polling'],
         timeout: 10000,
@@ -29,29 +28,24 @@ export const SocketProvider = ({ children }) => {
       });
       
       newSocket.on('connect', () => {
-        console.log('✅ Connected to WebSocket server with ID:', newSocket.id);
         setIsConnected(true);
         setConnectionAttempts(0);
       });
 
       newSocket.on('disconnect', (reason) => {
-        console.log('❌ Disconnected from WebSocket server:', reason);
         setIsConnected(false);
       });
 
       newSocket.on('connect_error', (error) => {
-        console.error('❌ WebSocket connection error:', error);
         setIsConnected(false);
         setConnectionAttempts(prev => prev + 1);
       });
 
       newSocket.on('reconnect', (attemptNumber) => {
-        console.log('🔄 Reconnected to WebSocket server after', attemptNumber, 'attempts');
         setIsConnected(true);
       });
 
       newSocket.on('reconnect_error', (error) => {
-        console.error('❌ WebSocket reconnection error:', error);
         setIsConnected(false);
       });
 
@@ -63,14 +57,12 @@ export const SocketProvider = ({ children }) => {
     const socketInstance = connectSocket();
 
     return () => {
-      console.log('Cleaning up WebSocket connection...');
       socketInstance.close();
     };
   }, []);
 
   const joinWishlist = (wishlistId) => {
     if (socket && isConnected) {
-      console.log('Joining wishlist room:', wishlistId);
       socket.emit('join-wishlist', wishlistId);
     } else {
       console.warn('Cannot join wishlist: Socket not connected');
@@ -79,7 +71,6 @@ export const SocketProvider = ({ children }) => {
 
   const leaveWishlist = (wishlistId) => {
     if (socket && isConnected) {
-      console.log('Leaving wishlist room:', wishlistId);
       socket.emit('leave-wishlist', wishlistId);
     }
   };

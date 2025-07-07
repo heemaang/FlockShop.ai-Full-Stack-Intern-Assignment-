@@ -15,7 +15,7 @@ export const API_URLS = {
   WISHLIST_PRODUCT: (wishlistId, productId) => `${API_BASE_URL}/api/wishlists/${wishlistId}/products/${productId}`,
   
   // Invite endpoints
-  WISHLIST_INVITES: (id) => `${API_BASE_URL}/api/wishlists/${id}/invites`,
+  WISHLIST_INVITES: (id) => `${API_BASE_URL}/api/wishlists/${id}/invite`,
   ACCEPT_INVITE: (inviteId) => `${API_BASE_URL}/api/invites/${inviteId}/accept`,
   
   // Comments and reactions
